@@ -6,7 +6,7 @@
     <title>javascript</title>
 </head>
 <body style="background-color: #414141;">
-    <ul>
+    <ul id="images">
         <li><img width="200px" id="dog" src="https://videos.pexels.com/video-files/32488204/13853907_360_640_25fps.mp4" alt="photoshop"></li>
         <li><img width="200px" id="chick" src="https://videos.pexels.com/video-files/32426802/13830957_360_640_30fps.mp4" alt=""></li>
         <li><a style="color: aliceblue;" href="https://google.com" id="google">Google</a></li>
@@ -16,5 +16,34 @@
     document.getElementById('dog').onclick = function(){
         alert("dog clicked")
     }
+
+    document.getElementById('dog').addEventListener('click', function() {
+        alert("dog clicked")
+    })
+
+    document.getElementById('dog').addEventListener('click', function(e){
+        console.log(e);
+    }, false)
+
+    //to study : type,timestamp, defaultPrevented, target,toElement, srcElement, currentTarget, clientX, clientY, screeenX, screenY
+    // altkey, ctrlkey, shiftkey, keyCode
+
+    //event propogation : bubbling up means fron in to out like in below example if we click dog image first dog clicked will be written in console than clicked inside the ul. because dofg is a image inside the ul (for FALSE);
+    // in case of capturing(TRue), the hierarchy is folowed like first clicked inside ul nd then dog is clicked will be shown in console;
+    document.getElementById('images').addEventListener('clicked', function(e){
+        console.log("clicked inside the ul");
+    }, false)
+    
+    document.getElementById('dog').addEventListener('click', function(e){
+        console.log("dog clicked");
+        e.stopPropagation(); // this will stop the bubbling
+    }, false)
+
+    // 
+    document.getElementById('google').addEventListener('click', function(e){
+        console.log(e);
+        e.defaultPrevented();
+    })
+
 </script>
 </html>

@@ -7,8 +7,8 @@
 </head>
 <body style="background-color: #414141;">
     <ul id="images">
-        <li><img width="200px" id="dog" src="https://videos.pexels.com/video-files/32488204/13853907_360_640_25fps.mp4" alt="photoshop"></li>
-        <li><img width="200px" id="chick" src="https://videos.pexels.com/video-files/32426802/13830957_360_640_30fps.mp4" alt=""></li>
+        <li><img width="200px" id="dog" src="https://www.pexels.com/photo/two-yellow-labrador-retriever-puppies-1108099/" alt="photoshop"></li>
+        <li><img width="200px" id="chick" src="https://www.pexels.com/photo/white-duckling-on-grass-55834/" alt=""></li>
         <li><a style="color: aliceblue;" href="https://google.com" id="google">Google</a></li>
     </ul>
 </body>
@@ -39,10 +39,15 @@
         e.stopPropagation(); // this will stop the bubbling
     }, false)
 
-    // 
     document.getElementById('google').addEventListener('click', function(e){
         console.log(e);
-        e.defaultPrevented();
+        e.preventDefault();
+        console.log("google clicked");
+    })
+
+    document.querySelector('#images').addEventListener('click', function(e){
+        console.log(e.target);
+        //e.target.parentnode is used to represent the parent node of the target......... to remove --> let removeIt = e.target.parentNode; removeIt.remove();
     })
 
 </script>

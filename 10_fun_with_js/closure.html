@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Closure</title>
+</head>
+<body>
+    <button id="red">RED</button>
+    <button id="yellow">YELLOW</button>
+    
+</body>
+<script>
+    //  function init(){
+    //     let name = "Mozilla";
+
+    //     function displayName(){       //inner function that creates a closure
+    //         console.log(name);
+    //     }
+    //     displayName();
+    // }
+    // init();
+
+    // function outer(){
+    //     let username = "aman"
+    //     function inner(){
+    //         console.log("inner", username);
+            
+    //     }
+    //     inner()
+    // }
+    // outer()
+    // console.log("outer", username);
+
+    // function makeFunc(){
+    //     const name = "aman";
+    //     function displayName(){
+    //         console.log(name);
+    //     }
+    //     return displayName;   // here not only the function is returned or its scope but overall lexical scope will be returned.... its parent or outer function will also be returned....
+    // }
+    // const myFunc = makeFunc();
+    // myFunc();
+
+
+    // document.getElementById("red").addEventListener('click', function(){
+    //     document.body.style.backgroundColor = "red"
+    // })
+
+    // document.getElementById("yellow").addEventListener('click', function(){
+    //     document.body.style.backgroundColor = "yellow"
+    // })
+
+    function clickHandler(color){
+       return function(){
+         document.body.style.backgroundColor = `${color}`      //this is because of lexical scoping
+       }
+    }
+
+    document.getElementById('red').addEventListener('click', clickHandler('red'))
+    document.getElementById('yellow').addEventListener('click', clickHandler('yellow'))
+    
+</script>
+</html>

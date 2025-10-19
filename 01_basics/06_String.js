@@ -9,7 +9,7 @@ console.log(`My name is ${name} and my age is ${age}`);
 
 const gameName = new String('Aman Tyagi')
 console.log(gameName.length); //10
-console.log(gameName.__proto__); // object prototype
+console.log(gameName.__proto__); // object prototype __proto__ is just like inheritance in oop. one can change the prototype of any object and the object will inherit the properties of the new prototype.
 
 console.log(gameName.toUpperCase());
 
